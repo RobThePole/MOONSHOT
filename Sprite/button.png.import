@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Start.png-adb2c014fd163cbca520e10ea8c07927.stex"
+path="res://.import/button.png-4fb64756828c9f9c474fb85aeacfddeb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Start.png"
-dest_files=[ "res://.import/Start.png-adb2c014fd163cbca520e10ea8c07927.stex" ]
+source_file="res://Sprite/button.png"
+dest_files=[ "res://.import/button.png-4fb64756828c9f9c474fb85aeacfddeb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

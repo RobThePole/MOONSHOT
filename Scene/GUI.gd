@@ -6,9 +6,10 @@ extends CenterContainer
 func _ready():
 	
 	# Go in and make some kind of background drop for the game
-	$BackGround.rect_min_size.x = get_viewport().size.x
-	$BackGround.rect_min_size.y = get_viewport().size.y
-	print($BackGround.rect_min_size)
+	print("Light all green sir")
+	# Add in Controls for the user on the Start menu
+	# Add in Animated Gif of the game if time
+	# If not add in a png image of what the game will look like on the main menu
 
 
 	pass # Replace with function body.
