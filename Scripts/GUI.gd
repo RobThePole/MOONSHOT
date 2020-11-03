@@ -13,6 +13,8 @@ func _ready():
 	# Add in Animated Gif of the game if time
 	
 	# If not add in a png image of what the game will look like on the main menu
+	
+	# Add in some kind of music for the main menu
 
 
 	pass # Replace with function body.
