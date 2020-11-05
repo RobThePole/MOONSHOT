@@ -1,6 +1,6 @@
 extends Control
 
-
+const TILE_SIZE = 16
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,9 +9,17 @@ onready var map = $TileMap
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.position = $Enter.position
-	$Player/Camera2D.limit_bottom = $Exit.position.y
-	$Player/Camera2D.limit_left = 0
-	$Player/Camera2D.limit_right = $Exit.position.x * 2
+	
+	# Find out if there is a way to call this 
+	var rect = $TileMap.get_used_rect()
+	var Test = String (rect)
+	Test.erase(Test.length() - 1, 1)
+	var some_array = Test.split(",", true, 0)
+	var Limit_Right = int(some_array[2]) * TILE_SIZE
+	var Limit_Bottom = int(some_array[3]) * TILE_SIZE
+
+	$Player/Camera2D.limit_right = Limit_Right
+	$Player/Camera2D.limit_bottom = Limit_Bottom
 	pass # Replace with function body.
 
 
