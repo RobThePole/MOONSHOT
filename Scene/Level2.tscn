@@ -4,7 +4,7 @@
 [ext_resource path="res://Scene/menu/FadeIn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level1.tres" type="TileSet" id=3]
 [ext_resource path="res://Scene/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scene/StaticCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scene/FallZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scene/Level2.gd" type="Script" id=6]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=7]
 
@@ -17,15 +17,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 96 )
-collision_layer = 1
-
-[node name="Camera2D" parent="Player" instance=ExtResource( 5 )]
-position = Vector2( 0, 0 )
-limit_left = 0
-limit_top = 16
-limit_right = 320
-limit_bottom = 192
+position = Vector2( 160, 32 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -48,15 +40,31 @@ visible = false
 position = Vector2( 160, 200 )
 scale = Vector2( 2, 1 )
 
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 48, 160 )
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 160, 200 )
+scale = Vector2( 2, 1 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 272, 160 )
+[node name="Enemy" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -56, -40 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 52, -48 )
+scale = Vector2( 0.5, 1 )
 direction = 1
 
-[node name="Enemy3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 224, 176 )
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 56, -24 )
+scale = Vector2( 0.5, 1 )
 direction = 1
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 24, -24 )
+scale = Vector2( 0.5, 1 )
+direction = 1
+
+[node name="FallZone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, 304 )
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="body_entered" from="Exit" to="." method="_on_Exit_body_entered"]
+[connection signal="body_entered" from="FallZone" to="." method="_on_FallZone_body_entered"]

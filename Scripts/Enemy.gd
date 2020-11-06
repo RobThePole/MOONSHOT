@@ -13,6 +13,9 @@ var stop = false
 
 func _ready():
 	# Change this based off the default sprite where it is looking
+	if(detects_cliffs):
+		set_modulate(Color(.5,.3,.5,1))
+	
 	if direction==-1:
 		$Sprite.flip_h = true
 	$FloorChecker.position.x = $CollisionShape2D.shape.get_extents().x * direction
@@ -62,24 +65,27 @@ func _on_TopChecker_body_entered(body):
 		$SideChecker.set_collision_mask_bit(0,false)
 		# Starts timer to delete
 		$Timer.start()
+		if(body.has_method("bounce")):
+			body.bounce()
 
 		
 	pass # Replace with function body.
-
+func bounce():
+	motion.y = -100
 
 func _on_SideChecker_body_entered(body):
+	# Makes sure that you don't hit yourself
 	if(body.name == self.name):
 		pass
 	else:
-		print("ouch")
+		if(body.has_method("ouch")):
+			body.ouch(self.position.x)
 		direction = direction * -1
 		$Sprite.flip_h = not $Sprite.flip_h
 		$FloorChecker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 		
 	pass # Replace with function body.
 
-
 func _on_Timer_timeout():
-	print("bye")
 	queue_free()
 	pass # Replace with function body.

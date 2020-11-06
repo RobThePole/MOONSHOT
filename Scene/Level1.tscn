@@ -5,26 +5,20 @@
 [ext_resource path="res://Scene/PlayerPlatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scene/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/menu/FadeIn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scene/StaticCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scene/FallZone.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -960.0
+margin_bottom = -480.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 96 )
-collision_layer = 1
-
-[node name="Camera2D" parent="Player" instance=ExtResource( 6 )]
-position = Vector2( 128, 0 )
-limit_left = 0
-limit_top = 16
-limit_right = 320
-limit_bottom = 208
+position = Vector2( 160, 16 )
 
 [node name="Enter" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -54,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -26.0
-margin_right = 91.0
-margin_bottom = 73.0
+margin_left = -90.5
+margin_top = -49.5
+margin_right = 90.5
+margin_bottom = 49.5
 text = "W 
 For Jump
 A/D 
@@ -68,5 +62,9 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FallZone" parent="." instance=ExtResource( 6 )]
+position = Vector2( 192, 304 )
 [connection signal="body_entered" from="Exit" to="." method="_on_Door_body_entered"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="FallZone" to="." method="_on_FallZone_body_entered"]

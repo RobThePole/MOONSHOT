@@ -1,9 +1,8 @@
 extends Control
 
 const TILE_SIZE = 16
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+# Go in and add Fall_Zone for Player and Enemies
 
 onready var map = $TileMap
 # Called when the node enters the scene tree for the first time.
@@ -37,4 +36,12 @@ func _on_Exit_body_entered(body):
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://Scene/Level3.tscn")
+	pass # Replace with function body.
+
+
+func _on_FallZone_body_entered(body):
+	if(body.name == "Player"):
+		$Player/Camera2D.current = false
+	# Makes sure to get rid of the Object interesting not the whole Level
+	body.queue_free()
 	pass # Replace with function body.

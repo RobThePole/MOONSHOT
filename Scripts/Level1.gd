@@ -38,3 +38,11 @@ func _on_FadeIn_fade_finished():
 	$FadeIn.hide()
 	get_tree().change_scene("res://Scene/Level2.tscn")
 	pass # Replace with function body.
+
+
+func _on_FallZone_body_entered(body):
+	if(body.name == "Player"):
+		$Player/Camera2D.current = false
+	# Makes sure to get rid of the Object interesting not the whole Level
+	body.queue_free()
+	pass # Replace with function body.

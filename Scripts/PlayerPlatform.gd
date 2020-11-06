@@ -11,7 +11,6 @@ const SPRINT = 20
 # Add const for MAX_SPEED_SPRINT ?
 
 
-
 onready var sprite = $Sprite
 # Collision works need to add tiles to the game to build 
 
@@ -52,5 +51,35 @@ func _physics_process(delta):
 
 	motion = move_and_slide(motion,Vector2.UP)
 
+func bounce():
+	motion.y = -JUMP_FORCE * .7
+func ouch(var enemyPosx):
+	set_modulate(Color(1,0.3,0.3,0.3))
+	motion.y = -JUMP_FORCE * .4
+	
+	
+	if position.x < enemyPosx:
+
+		motion.x = -100
+	elif position.x > enemyPosx:
+		motion.x = 100
+	Input.action_release("ui_left")
+	Input.action_release("ui_right")
+	
+	set_collision_layer_bit(0,false)
+	
+	set_collision_mask_bit(0,false)
+	set_collision_mask_bit(1,false)
+	set_collision_mask_bit(4,false)
+	
+	# Keep this as Current if we change to Game_over Screen
+	$Camera2D.current = false
+	$Timer.start()
 
 
+func _on_Timer_timeout():
+	
+	#Replace this with Gamer_Over screen instead
+	queue_free()
+	
+	pass # Replace with function body.
