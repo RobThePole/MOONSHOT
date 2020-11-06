@@ -7,6 +7,7 @@ extents = Vector2( 8, 8 )
 
 [node name="Door" type="Area2D"]
 position = Vector2( 128, 72 )
+collision_layer = 0
 
 [node name="Area2D" type="Sprite" parent="."]
 texture = ExtResource( 1 )

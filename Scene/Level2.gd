@@ -14,7 +14,7 @@ func _ready():
 
 	$Player/Camera2D.limit_right = Limit_Right
 	$Player/Camera2D.limit_bottom = Limit_Bottom
-	print(Limit_Bottom)
+
 
 	pass # Replace with function body.
 
