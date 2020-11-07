@@ -8,6 +8,7 @@ const GRAVITY = 300
 const JUMP_FORCE = 200
 const AIR_RESISTANCE = 0.02
 const SPRINT = 20
+export (String) var currentLevel
 # Add const for MAX_SPEED_SPRINT ?
 
 
@@ -78,8 +79,8 @@ func ouch(var enemyPosx):
 
 
 func _on_Timer_timeout():
-	
 	#Replace this with Gamer_Over screen instead
-	queue_free()
+	get_tree().change_scene(currentLevel)
+	#queue_free()
 	
 	pass # Replace with function body.
