@@ -7,7 +7,6 @@ func _ready():
 	$Menu/CenterRow/Buttons/StartGame.grab_focus()
 	# Need to change Options button to have a different scene to load
 	for button in $Menu/CenterRow/Buttons.get_children():
-		print(button)
 		button.connect("pressed",self,"on_Button_pressed",[button.scene_to_load])
 	pass # Replace with function body.
 
