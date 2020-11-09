@@ -1,8 +1,8 @@
 extends Control
 
-const TILE_SIZE = 16
+const TILE_SIZE = 64
 
-# Go in and add Fall_Zone for Player and Enemies
+
 
 onready var map = $TileMap
 # Called when the node enters the scene tree for the first time.
@@ -22,11 +22,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Exit_body_entered(body):
 	if(body.get_name() == "Player"):
 		$FadeIn.show()
@@ -35,13 +30,12 @@ func _on_Exit_body_entered(body):
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene("res://Scene/Level3.tscn")
+	get_tree().change_scene("res://Scene/End_Credits.tscn")
 	pass # Replace with function body.
 
 
 func _on_FallZone_body_entered(body):
-	if(body.name == "Player"):
-		$Player/Camera2D.current = false
+
 	# Makes sure to get rid of the Object interesting not the whole Level
 	body.queue_free()
 	pass # Replace with function body.

@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
 
-const ACCERLATION = 500
-const MAX_SPEED = 64
+const ACCERLATION = 1000
+const MAX_SPEED = 128
 const FRIGTION = 0.25
-const GRAVITY = 300
-const JUMP_FORCE = 200
+const GRAVITY = 600
+const JUMP_FORCE = 400
 const AIR_RESISTANCE = 0.02
 const SPRINT = 20
 export (String) var currentLevel

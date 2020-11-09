@@ -1,6 +1,6 @@
 extends Control
 
-const TILE_SIZE = 16
+const TILE_SIZE = 64
 
 func _ready():
 	$Player.position = $Enter.position
@@ -21,15 +21,9 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Door_body_entered(body):
+func _on_Exit_body_entered(body):
 	$FadeIn.show()
 	$FadeIn.fade_in()
-		
 		
 	pass # Replace with function body.
 
@@ -41,8 +35,8 @@ func _on_FadeIn_fade_finished():
 
 
 func _on_FallZone_body_entered(body):
-	if(body.name == "Player"):
-		$Player/Camera2D.current = false
+
 	# Makes sure to get rid of the Object interesting not the whole Level
 	body.queue_free()
 	pass # Replace with function body.
+

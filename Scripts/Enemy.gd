@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const GRAVITY = 300
-const ACCERLATION = 1500
+const GRAVITY = 600
+const ACCERLATION = 4000
 
 export var direction = -1
 export var detects_cliffs = true
