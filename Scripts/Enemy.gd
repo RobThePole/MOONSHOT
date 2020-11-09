@@ -8,6 +8,8 @@ export var detects_cliffs = true
 var motion = Vector2()
 var stop = false
 
+signal update_score
+
 # Add in the rayCast to detect Clif
 
 
@@ -64,6 +66,7 @@ func _on_TopChecker_body_entered(body):
 		$TopChecker.set_collision_mask_bit(4,false)
 		$SideChecker.set_collision_mask_bit(0,false)
 		# Starts timer to delete
+		emit_signal("update_score")
 		$Timer.start()
 		if(body.has_method("bounce")):
 			body.bounce()

@@ -3,6 +3,7 @@ extends Control
 
 const TILE_SIZE = 64
 
+var Enemies
 
 func _ready():
 	$Player.position = $Enter.position
@@ -17,9 +18,8 @@ func _ready():
 
 	$Player/Camera2D.limit_right = Limit_Right
 	$Player/Camera2D.limit_bottom = Limit_Bottom
-
-
-	pass # Replace with function body.
+	
+	Enemies = $Enemies.get_child_count()
 
 
 func _on_FadeIn_fade_finished():
@@ -28,14 +28,21 @@ func _on_FadeIn_fade_finished():
 
 
 func _on_Exit_body_entered(body):
-	#if(body.get_name() == "Player"):
-	$FadeIn.show()
-	$FadeIn.fade_in()
+	if Enemies == 0:
+		$FadeIn.show()
+		$FadeIn.fade_in()
 	pass # Replace with function body.
 
 
 func _on_FallZone_body_entered(body):
-	
-	# Makes sure to get rid of the Object interesting not the whole Level
-	body.queue_free()
+	if(body.name == "Player" and Enemies != 0):
+		get_tree().change_scene("res://Scene/Level2.tscn")
+	elif(body.name != "Player"):
+		body.queue_free()
+	pass # Replace with function body.
+
+
+
+func _on_Enemy_update_score():
+	Enemies -= 1
 	pass # Replace with function body.

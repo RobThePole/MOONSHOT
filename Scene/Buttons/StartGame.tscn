@@ -3,6 +3,10 @@
 [ext_resource path="res://Scene/Buttons/MenuButton.tscn" type="PackedScene" id=1]
 
 [node name="StartGame" instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -880.0
+margin_bottom = -660.0
 
 [node name="Label" parent="." index="0"]
 text = "START"

@@ -92,10 +92,13 @@ __meta__ = {
 }
 
 [node name="FadeIn" parent="Level2World" instance=ExtResource( 2 )]
-visible = false
 margin_bottom = 108.0
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="Level2World/Exit" to="Level2World" method="_on_Exit_body_entered"]
+[connection signal="update_score" from="Level2World/Enemies/Enemy" to="Level2World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level2World/Enemies/Enemy2" to="Level2World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level2World/Enemies/Enemy3" to="Level2World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level2World/Enemies/Enemy4" to="Level2World" method="_on_Enemy_update_score"]
 [connection signal="body_entered" from="Level2World/FallZone" to="Level2World" method="_on_FallZone_body_entered"]
 [connection signal="fade_finished" from="Level2World/FadeIn" to="Level2World" method="_on_FadeIn_fade_finished"]

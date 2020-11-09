@@ -70,7 +70,6 @@ __meta__ = {
 }
 
 [node name="FadeIn" parent="Level1World" instance=ExtResource( 5 )]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="FallZone" parent="Level1World" instance=ExtResource( 6 )]

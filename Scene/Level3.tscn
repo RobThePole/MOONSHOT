@@ -70,5 +70,9 @@ position = Vector2( 176, 480 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="Level3World/Exit" to="Level3World" method="_on_Exit_body_entered"]
+[connection signal="update_score" from="Level3World/Enemies/Enemy" to="Level3World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level3World/Enemies/Enemy2" to="Level3World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level3World/Enemies/Enemy3" to="Level3World" method="_on_Enemy_update_score"]
+[connection signal="update_score" from="Level3World/Enemies/Enemy4" to="Level3World" method="_on_Enemy_update_score"]
 [connection signal="body_entered" from="Level3World/FallZone" to="Level3World" method="_on_FallZone_body_entered"]
 [connection signal="fade_finished" from="Level3World/FadeIn" to="Level3World" method="_on_FadeIn_fade_finished"]
