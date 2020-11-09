@@ -15,13 +15,14 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 9.02319 )
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2( 0.25, 0.25 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 limit_left = 0
