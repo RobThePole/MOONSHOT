@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/EndGame.wav-4e53c37d063e64287f999fa5037b5e05.sample"
+
+[deps]
+
+source_file="res://Music/EndGame.wav"
+dest_files=[ "res://.import/EndGame.wav-4e53c37d063e64287f999fa5037b5e05.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

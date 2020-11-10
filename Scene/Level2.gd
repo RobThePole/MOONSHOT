@@ -36,7 +36,7 @@ func _on_Exit_body_entered(body):
 
 func _on_FallZone_body_entered(body):
 	if(body.name == "Player" and Enemies != 0):
-		get_tree().change_scene("res://Scene/Level2.tscn")
+		get_tree().change_scene("res://Scene/Level2Restart.tscn")
 	elif(body.name != "Player"):
 		body.queue_free()
 	pass # Replace with function body.

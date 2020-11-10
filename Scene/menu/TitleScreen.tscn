@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprite/Moon.png" type="Texture" id=1]
+[ext_resource path="res://Music/StartGame.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scene/Buttons/OptionsButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scene/Buttons/ExitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/Buttons/StartGame.tscn" type="PackedScene" id=6]
@@ -100,4 +101,9 @@ RobThePole"
 align = 1
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -45.0
+autoplay = true
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
