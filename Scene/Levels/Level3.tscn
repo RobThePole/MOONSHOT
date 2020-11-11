@@ -28,7 +28,7 @@ __meta__ = {
 
 [node name="Player" parent="Level3World" instance=ExtResource( 1 )]
 position = Vector2( 144, 48 )
-currentLevel = "res://Scene/Level3.tscn"
+currentLevel = "res://Scene/Levels/Level3.tscn"
 
 [node name="Enter" parent="Level3World" instance=ExtResource( 2 )]
 visible = false
@@ -38,6 +38,7 @@ position = Vector2( 160, 24 )
 visible = false
 position = Vector2( 160, 376 )
 scale = Vector2( 2, 1 )
+scene_to_load = "res://Scene/Levels/Level4.tscn"
 
 [node name="TileMap" type="TileMap" parent="Level3World"]
 tile_set = ExtResource( 4 )
@@ -67,14 +68,26 @@ direction = 1
 [node name="FallZone" parent="Level3World" instance=ExtResource( 7 )]
 position = Vector2( 176, 480 )
 
+[node name="Label" type="Label" parent="Level3World"]
+margin_left = 92.0
+margin_top = 284.0
+margin_right = 239.0
+margin_bottom = 332.0
+text = "Press R to 
+Restart the level if you
+missed some enemies"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FadeIn" parent="Level3World" instance=ExtResource( 3 )]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -30.0
 autoplay = true
+bus = "Music"
 [connection signal="body_entered" from="Level3World/Exit" to="Level3World" method="_on_Exit_body_entered"]
 [connection signal="update_score" from="Level3World/Enemies/Enemy" to="Level3World" method="_on_Enemy_update_score"]
 [connection signal="update_score" from="Level3World/Enemies/Enemy2" to="Level3World" method="_on_Enemy_update_score"]

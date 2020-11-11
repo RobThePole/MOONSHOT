@@ -3,6 +3,7 @@ extends Control
 const TILE_SIZE = 64
 
 var Enemies
+var next_level
 
 onready var map = $TileMap
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +23,13 @@ func _ready():
 	
 	Enemies = $Enemies.get_child_count()
 	pass # Replace with function body.
+	$Exit.connect("body_entered",self,"on_change_level",[$Exit.scene_to_load])
 
+func on_change_level(body,scene_to_load):
+	if(body.get_name() == "Player" and Enemies == 0):
+		next_level = scene_to_load
+		$FadeIn.show()
+		$FadeIn.fade_in()
 
 func _on_Exit_body_entered(body):
 	if(body.get_name() == "Player" and Enemies == 0):
@@ -32,7 +39,8 @@ func _on_Exit_body_entered(body):
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene("res://Scene/End_Credits.tscn")
+	$FadeIn.hide()
+	get_tree().change_scene(next_level)
 	pass # Replace with function body.
 
 

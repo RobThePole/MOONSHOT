@@ -34,7 +34,7 @@ __meta__ = {
 
 [node name="Player" parent="Level2World" instance=ExtResource( 2 )]
 position = Vector2( 160, 32 )
-currentLevel = "res://Scene/Level2Restart.tscn"
+currentLevel = "res://Scene/Levels/Level2Restart.tscn"
 
 [node name="TileMap" type="TileMap" parent="Level2World"]
 tile_set = ExtResource( 8 )
@@ -53,6 +53,7 @@ position = Vector2( 160, 24 )
 visible = false
 position = Vector2( 160, 200 )
 scale = Vector2( 2, 1 )
+scene_to_load = "res://Scene/Levels/Level3.tscn"
 
 [node name="Enemies" type="Node2D" parent="Level2World"]
 position = Vector2( 160, 200 )
@@ -101,8 +102,8 @@ margin_bottom = 108.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )
-volume_db = -30.0
 autoplay = true
+bus = "Music"
 [connection signal="body_entered" from="Level2World/Exit" to="Level2World" method="_on_Exit_body_entered"]
 [connection signal="update_score" from="Level2World/Enemies/Enemy" to="Level2World" method="_on_Enemy_update_score"]
 [connection signal="update_score" from="Level2World/Enemies/Enemy2" to="Level2World" method="_on_Enemy_update_score"]

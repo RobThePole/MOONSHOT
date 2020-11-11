@@ -5,7 +5,7 @@ const ACCERLATION = 1000
 const MAX_SPEED = 128
 const FRIGTION = 0.25
 const GRAVITY = 600
-const JUMP_FORCE = 400
+const JUMP_FORCE = 500
 const AIR_RESISTANCE = 0.02
 const SPRINT = 20
 export (String) var currentLevel
@@ -21,6 +21,9 @@ var motion = Vector2()
 
 
 func _physics_process(delta):
+
+	if Input.is_action_just_pressed("restart"):
+		get_tree().change_scene(currentLevel)
 
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var sprint_input = Input.get_action_strength("ui_shift")
