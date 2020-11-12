@@ -37,12 +37,14 @@ func on_change_level(body,scene_to_load):
 
 func _on_FadeIn_fade_finished():
 	$FadeIn.hide()
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(next_level)
 	pass # Replace with function body.
 
 
 func _on_FallZone_body_entered(body):
 	if(body.name == "Player" and Enemies !=0):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene($Player.currentLevel)
 	elif(body.name != "Player"):
 		body.queue_free()

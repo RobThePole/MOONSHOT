@@ -42,5 +42,6 @@ func _on_FadeIn_fade_finished():
 	if(scene_path_to_load == "EXIT"):
 		get_tree().quit()
 	else:
+	# warning-ignore:return_value_discarded
 		get_tree().change_scene(scene_path_to_load)
 	pass # Replace with function body.

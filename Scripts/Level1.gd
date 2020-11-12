@@ -19,6 +19,7 @@ func _ready():
 	$Player/Camera2D.limit_right = Limit_Right
 	$Player/Camera2D.limit_bottom = Limit_Bottom
 	
+	# warning-ignore:return_value_discarded
 	$Exit.connect("body_entered",self,"on_change_level",[$Exit.scene_to_load])
 	pass # Replace with function body.
 
@@ -31,6 +32,7 @@ func on_change_level(body,scene_to_load):
 
 func _on_FadeIn_fade_finished():
 	$FadeIn.hide()
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene(next_level)
 	pass # Replace with function body.
 
