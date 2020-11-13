@@ -32,7 +32,7 @@ func _physics_process(delta):
 		direction = direction * -1
 		$Sprite.flip_h = not $Sprite.flip_h
 		$FloorChecker.position.x = $CollisionShape2D.shape.get_extents().x * direction
-		print($FloorChecker.is_colliding())
+	
 
 
 

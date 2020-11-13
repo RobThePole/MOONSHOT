@@ -5,10 +5,11 @@
 [ext_resource path="res://Level1.tres" type="TileSet" id=3]
 [ext_resource path="res://Scene/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/FallZone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scene/Level2.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scene/menu/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Music/Level1.wav" type="AudioStream" id=9]
+
 
 [node name="Level2" type="Control"]
 anchor_right = 1.0
