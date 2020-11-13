@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/PlayerPlatform.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/PlayerAnim.png" type="Texture" id=2]
@@ -23,7 +23,22 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Walk"
+resource_name = "Jump"
+length = 0.5
+step = 0.25
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.25, 0, 7.69124, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
 step = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite:frame")
@@ -32,8 +47,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 0.74 )
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -44,7 +59,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 3
-frame = 4
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -76,5 +91,7 @@ bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
-anims/Walk = SubResource( 3 )
+anims/Jump = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
