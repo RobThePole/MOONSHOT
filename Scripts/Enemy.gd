@@ -15,8 +15,11 @@ signal update_score
 
 func _ready():
 	# Change this based off the default sprite where it is looking
-	if(detects_cliffs):
-		set_modulate(Color(.5,.3,.5,1))
+	#if(detects_cliffs):
+		#set_modulate(Color(.5,.3,.5,1))
+	
+	# Testing
+	$AnimationPlayer.play("idle")
 	
 	if direction==-1:
 		$Sprite.flip_h = true
@@ -67,6 +70,8 @@ func _on_TopChecker_body_entered(body):
 		$TopChecker.set_collision_mask_bit(4,false)
 		$SideChecker.set_collision_mask_bit(0,false)
 		# Starts timer to delete
+		
+		$AnimationPlayer.play("death")
 		emit_signal("update_score")
 		$Timer.start()
 		if(body.has_method("bounce")):
@@ -92,4 +97,9 @@ func _on_SideChecker_body_entered(body):
 
 func _on_Timer_timeout():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	$AnimationPlayer.play(anim_name)
 	pass # Replace with function body.
