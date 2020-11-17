@@ -21,6 +21,7 @@ func _ready():
 	
 	# warning-ignore:return_value_discarded
 	$Exit.connect("body_entered",self,"on_change_level",[$Exit.scene_to_load])
+
 	pass # Replace with function body.
 
 func on_change_level(body,scene_to_load):
@@ -42,4 +43,6 @@ func _on_FallZone_body_entered(body):
 	# Makes sure to get rid of the Object interesting not the whole Level
 	body.queue_free()
 	pass # Replace with function body.
+
+
 
