@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Level1.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Level1.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Scene/FallZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scene/menu/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Music/Level1.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sprite/TestEnemy.png" type="Texture" id=9]
 
 [node name="Level1" type="Control"]
 anchor_right = 1.0
@@ -29,7 +28,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="Level1World" instance=ExtResource( 3 )]
-position = Vector2( 160, 16 )
+position = Vector2( 120, 36 )
 currentLevel = "res://Scene/Levels/Level1.tscn"
 
 [node name="Enter" parent="Level1World" instance=ExtResource( 4 )]
@@ -77,10 +76,6 @@ position = Vector2( 192, 304 )
 
 [node name="FadeIn" parent="Level1World" instance=ExtResource( 5 )]
 color = Color( 0, 0, 0, 1 )
-
-[node name="Sprite" type="Sprite" parent="Level1World"]
-position = Vector2( 48, 108 )
-texture = ExtResource( 9 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
 

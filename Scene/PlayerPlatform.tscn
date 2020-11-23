@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/PlayerPlatform.gd" type="Script" id=1]
-[ext_resource path="res://Sprite/PlayerAnim.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/TestPlayer.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Jump.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/PlayerJump.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Die.wav" type="AudioStream" id=5]
